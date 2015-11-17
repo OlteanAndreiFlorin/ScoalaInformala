@@ -2,6 +2,8 @@ package cars;
 /**
  * Lotus is the abstract bases class for all Lotus cars created
  * Extends from Car() class;
+ * Calculates the fuel consumption and pollution /100km 
+ * implements 2 abstract methods: calculateFuelConsumptionAlgorithm() and getCo2Emissions(); 
  */
 public abstract class Lotus extends Car {
 
