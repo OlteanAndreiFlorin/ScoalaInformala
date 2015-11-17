@@ -1,5 +1,16 @@
 package cars;
 
+/**
+ * ExigeScoupe class;
+ * Extends the Lotus Class;
+ * 
+ * Class defines rules used when calculating fuel consumption
+ * and pollution created;
+ * 
+ * It also defines some states like fuel tank size, fuel type, maximum number of gears etc. 
+ * @author oltea
+ *
+ */
 public class ExigeSCoupe extends Lotus {
 	protected static final float FuelTankSize =60; //Factory specifications
 	protected static final String FuelType="Petrol"; //Factory specifications
@@ -15,6 +26,9 @@ public class ExigeSCoupe extends Lotus {
 		return this.ChassisNumber;
 	}
 	
+	/**
+	 * calculates the fuel consumption/100km for a given gear;
+	 */
 	@Override
 	protected final float calculateFuelConsumptionAlgorithm(int gear) {
 		if (gear == 0){
@@ -26,23 +40,36 @@ public class ExigeSCoupe extends Lotus {
 			return FuelConsumtionAvarageExtraUrban;
 		}
 	}
+	/**
+	 * Calculates the fuel consumed at the start;
+	 */
 	@Override
 	protected float calculateStarPollution() {
 		float co2Produced = FuelConsumedAtStart * 2392;  //1 L of gasoline produces 2392 g of co2
 		return co2Produced;
 	}
+	/**
+	 * Returns the fuel consumed at the start 
+	 */
 	@Override
 	protected float getFuelConsumedAtStart() {
 		return FuelConsumedAtStart;
 	}
 
-
+/**
+ * Implementation for the getCo2Emissions() method from parent class
+ * returns Co2 produced for a given amount of fuel consumed;   
+ */
 	@Override
 	protected float getCo2Emissions(float currentFuelConsumption) {
 		float currentCo2Emmisions = currentFuelConsumption * Pollution / FuelConsumptionAvarage;
 		return currentCo2Emmisions;
 	}
-	
+	/**
+	 * Constructor method for the ExigeSCpuoe class
+	 * @param availableFuel 
+	 * @param chassisNumber 
+	 */
 	public ExigeSCoupe(double availableFuel,String chassisNumber){
 		super(FuelTankSize, FuelType, MaxNumberOfGears, (float)availableFuel);
 		if (availableFuel>FuelTankSize ){
