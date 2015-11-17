@@ -8,7 +8,7 @@ package cars;
  * and pollution created;
  * 
  * It also defines some states like fuel tank size, fuel type, maximum number of gears etc. 
- * @author oltea
+ * @author Oltean Andrei-Florin
  *
  */
 public class ExigeSCoupe extends Lotus {
