@@ -1,12 +1,5 @@
 package car_wash;
 import cars.Car;
-import cars.Elise;
-import cars.ExigeSCoupe;
-import cars.Lotus;
-import cars.Tesla;
-import cars.ModelS;
-import cars.ModelX;
-import cars.Vehicle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
