@@ -110,6 +110,9 @@ public abstract class Car implements Vehicle {
 	protected abstract float calculateStarPollution();
 	
 	protected abstract float getFuelConsumedAtStart();
+	
+	public abstract String getChassisNumber();
+	public abstract float getFuelConsumptionAverage();
 
 	
 	private void saveStats(float fuelConsumed , float pollution){//Saves the fuel and pollutuin
@@ -202,5 +205,14 @@ public abstract class Car implements Vehicle {
 		MaxNumberOfGears = maxNumberOfGears;
 		this.availableFuel = availableFuel;
 	}
+
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString() {
+	return "Car [ChassisNumber=" + getChassisNumber() +", FuelTankSize=" + FuelTankSize + ", FuelType=" + FuelType + ", MaxNumberOfGears=" + MaxNumberOfGears
+			+ "]";
+}
 
 }

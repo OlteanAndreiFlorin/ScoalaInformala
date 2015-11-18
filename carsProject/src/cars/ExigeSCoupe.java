@@ -70,7 +70,7 @@ public class ExigeSCoupe extends Lotus {
 	 * Getter for fuel consumption avarage;
 	 * @return FUEL_CONSUMPTION_AVERAGE;
 	 */
-	public static final float getFuelConsumptionAverage() {
+	public final float getFuelConsumptionAverage() {
 	return FUEL_CONSUMPTION_AVERAGE;
 }
 
