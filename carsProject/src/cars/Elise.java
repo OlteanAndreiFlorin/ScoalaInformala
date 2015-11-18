@@ -76,6 +76,18 @@ public class Elise extends Lotus {
 		float co2Produced =FUEL_CONSUMPTION_AT_START * 2392;  //1 L of gasoline produces 2392 g of co2
 		return co2Produced;
 	}
+	
+	
+	/**
+	 * Getter for fuel consumption avarage;
+	 * @return FUEL_CONSUMPTION_AVERAGE;
+	 */
+	public final float getFuelConsumptionAverage() {
+		return FUEL_CONSUMPTION_AVERAGE;
+	}
+
+
+
 	/**
 	 * constructor for the Elise class;
 	 * @param availableFuel
@@ -89,7 +101,5 @@ public class Elise extends Lotus {
 		}
 		this.ChassisNumber = chassisNumber;
 	}
-
-
 	
 }

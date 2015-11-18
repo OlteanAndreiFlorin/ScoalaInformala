@@ -65,6 +65,15 @@ public class ExigeSCoupe extends Lotus {
 		float currentCo2Emmisions = currentFuelConsumption * POLLUTION / FUEL_CONSUMPTION_AVERAGE;
 		return currentCo2Emmisions;
 	}
+	
+	/**
+	 * Getter for fuel consumption avarage;
+	 * @return FUEL_CONSUMPTION_AVERAGE;
+	 */
+	public static final float getFuelConsumptionAverage() {
+	return FUEL_CONSUMPTION_AVERAGE;
+}
+
 	/**
 	 * Constructor method for the ExigeSCpuoe class
 	 * @param availableFuel 

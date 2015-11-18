@@ -48,6 +48,16 @@ public class ModelX extends Tesla {
 			return BATTERY_USED_IN_100KM; 
 		}
 	}
+	
+	/**
+	 * Getter for fuel consumption avarage;
+	 * @return BATTERY_USED_IN_100Km;
+	 */
+	public final float getFuelConsumptionAverage() {
+		return BATTERY_USED_IN_100KM;
+	}
+	
+	
 	/**
 	 * Constructor for the ModelX;
 	 * @param availableFuel

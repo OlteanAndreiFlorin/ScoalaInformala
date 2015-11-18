@@ -51,6 +51,15 @@ public class ModelS extends Tesla {
 	}
 	
 	/**
+	 * Getter for fuel consumption avarage;
+	 * @return BATTERY_USED_IN_100Km;
+	 */
+	public final float getFuelConsumptionAverage() {
+		return BATTERY_USED_IN_100Km;
+	}
+	
+	
+	/**
 	 * Constructor for the ModelS;
 	 * @param availableFuel
 	 * @param chassisNumber
