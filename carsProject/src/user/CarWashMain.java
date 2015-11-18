@@ -2,7 +2,8 @@ package user;
 import car_wash.CarInventory;
 import cars.*;
 import java.util.List;
-public class Main {
+
+public class CarWashMain {
 
 	public static void main(String[] args) { 
 		Car car1 = new ModelS(50,"CarS");
