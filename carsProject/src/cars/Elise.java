@@ -13,12 +13,12 @@ package cars;
  */
 
 public class Elise extends Lotus {
-	protected static final float FuelTankSize =60; //Factory specifications
-	protected static final String FuelType="Petrol"; //Factory specifications
-	protected static final int MaxNumberOfGears=6; //Factory specifications
-	protected static final float Pollution=149; //Factory specifications
-	protected static final float FuelConsumedAtStart=0.23f;//Custom consumption of fuel at the start of the motor may vary from reality
-	protected static final float FuelConsumptionAvarage = 6.3f;//Factory specifications
+	protected static final float FUEL_TANK_SIZE =60; //Factory specifications
+	protected static final String FUEL_TYPE="Petrol"; //Factory specifications
+	protected static final int MAX_NUMBER_OF_GEARS=6; //Factory specifications
+	protected static final float POLLUTION=149; //Factory specifications
+	protected static final float FUEL_CONSUMPTION_AT_START=0.23f;//Custom consumption of fuel at the start of the motor may vary from reality
+	protected static final float FUEL_CONSUMPTION_AVERAGE = 6.3f;//Factory specifications
 	protected final String ChassisNumber;//
 
 	public String getChassisNumber() {
@@ -58,7 +58,7 @@ public class Elise extends Lotus {
  */
 	@Override
 	protected float getCo2Emissions(float currentFuelConsumption) {
-		float currentCo2Emmisions = currentFuelConsumption * Pollution / FuelConsumptionAvarage;
+		float currentCo2Emmisions = currentFuelConsumption * POLLUTION / FUEL_CONSUMPTION_AVERAGE;
 		return currentCo2Emmisions;
 	}
 	/**
@@ -66,14 +66,14 @@ public class Elise extends Lotus {
 	 */
 	@Override
 	protected float getFuelConsumedAtStart() {
-		return FuelConsumedAtStart;
+		return FUEL_CONSUMPTION_AT_START;
 	}
 	/**
 	 * calculates the pollution created during start;
 	 */
 	@Override
 	protected float calculateStarPollution() {
-		float co2Produced =FuelConsumedAtStart * 2392;  //1 L of gasoline produces 2392 g of co2
+		float co2Produced =FUEL_CONSUMPTION_AT_START * 2392;  //1 L of gasoline produces 2392 g of co2
 		return co2Produced;
 	}
 	/**
@@ -82,8 +82,8 @@ public class Elise extends Lotus {
 	 * @param chassisNumber
 	 */
 	public Elise(double availableFuel,String chassisNumber){
-		super(FuelTankSize, FuelType, MaxNumberOfGears, (float)availableFuel);
-		if (availableFuel>FuelTankSize ){
+		super(FUEL_TANK_SIZE, FUEL_TYPE, MAX_NUMBER_OF_GEARS, (float)availableFuel);
+		if (availableFuel>FUEL_TANK_SIZE ){
 			System.out.println("Too much fuel");
 			System.exit(0);
 		}

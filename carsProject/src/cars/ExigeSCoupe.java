@@ -12,14 +12,14 @@ package cars;
  *
  */
 public class ExigeSCoupe extends Lotus {
-	protected static final float FuelTankSize =60; //Factory specifications
-	protected static final String FuelType="Petrol"; //Factory specifications
-	protected static final int MaxNumberOfGears=6; //Factory specifications
-	protected static final float Pollution=235; //Factory specifications co2 g/km
-	protected static final float FuelConsumedAtStart=0.45f;//Custom consumption of fuel at the start of the motor may vary from reality
-	protected static final float FuelConsumptionAvarage = 10.1f; //Factory specifications liters/100km combined
-	protected static final float FuelConsumtionAvarageUrban = 14.5f;//Factory specifications liters/100km urban environment
-	protected static final float FuelConsumtionAvarageExtraUrban = 7.6f;//Factory specifications liters/100km extraUrban environment
+	protected static final float FUEL_TANK_SIZE =60; //Factory specifications
+	protected static final String FUEL_TYPE="Petrol"; //Factory specifications
+	protected static final int MAX_NUMBER_OF_GEARS=6; //Factory specifications
+	protected static final float POLLUTION=235; //Factory specifications co2 g/km
+	protected static final float FUEL_CONSUMPTION_AT_START=0.45f;//Custom consumption of fuel at the start of the motor may vary from reality
+	protected static final float FUEL_CONSUMPTION_AVERAGE = 10.1f; //Factory specifications liters/100km combined
+	protected static final float FUEL_CONSUMPTION_AVERAGE_URBAN = 14.5f;//Factory specifications liters/100km urban environment
+	protected static final float FUEL_CONSUMPTION_AVERAGE_EXTRA_URBAN = 7.6f;//Factory specifications liters/100km extraUrban environment
 	protected final String ChassisNumber;
 	
 	public String getChassisNumber() {
@@ -35,9 +35,9 @@ public class ExigeSCoupe extends Lotus {
 			return 0;
 		}else
 		if (gear<4){
-			return FuelConsumtionAvarageUrban;
+			return FUEL_CONSUMPTION_AVERAGE_URBAN;
 		}else{
-			return FuelConsumtionAvarageExtraUrban;
+			return FUEL_CONSUMPTION_AVERAGE_EXTRA_URBAN;
 		}
 	}
 	/**
@@ -45,7 +45,7 @@ public class ExigeSCoupe extends Lotus {
 	 */
 	@Override
 	protected float calculateStarPollution() {
-		float co2Produced = FuelConsumedAtStart * 2392;  //1 L of gasoline produces 2392 g of co2
+		float co2Produced = FUEL_CONSUMPTION_AT_START * 2392;  //1 L of gasoline produces 2392 g of co2
 		return co2Produced;
 	}
 	/**
@@ -53,7 +53,7 @@ public class ExigeSCoupe extends Lotus {
 	 */
 	@Override
 	protected float getFuelConsumedAtStart() {
-		return FuelConsumedAtStart;
+		return FUEL_CONSUMPTION_AT_START;
 	}
 
 /**
@@ -62,7 +62,7 @@ public class ExigeSCoupe extends Lotus {
  */
 	@Override
 	protected float getCo2Emissions(float currentFuelConsumption) {
-		float currentCo2Emmisions = currentFuelConsumption * Pollution / FuelConsumptionAvarage;
+		float currentCo2Emmisions = currentFuelConsumption * POLLUTION / FUEL_CONSUMPTION_AVERAGE;
 		return currentCo2Emmisions;
 	}
 	/**
@@ -71,8 +71,8 @@ public class ExigeSCoupe extends Lotus {
 	 * @param chassisNumber 
 	 */
 	public ExigeSCoupe(double availableFuel,String chassisNumber){
-		super(FuelTankSize, FuelType, MaxNumberOfGears, (float)availableFuel);
-		if (availableFuel>FuelTankSize ){
+		super(FUEL_TANK_SIZE, FUEL_TYPE, MAX_NUMBER_OF_GEARS, (float)availableFuel);
+		if (availableFuel>FUEL_TANK_SIZE ){
 			System.out.println("Too much fuel");
 			System.exit(0);
 		}
