@@ -12,7 +12,7 @@ public class Employee {
 	
 
 
-	public Employee(String firstName, String lastName, Date dateOfBirth, String gender) throws RuntimeException {
+	public Employee(String firstName, String lastName, Date dateOfBirth, String gender) throws NullPointerException,IllegalArgumentException {
 		super();
 		if (firstName.isEmpty()){
 			throw new NullPointerException("Name can't be empty");
@@ -33,6 +33,26 @@ public class Employee {
 			this.gender = gender;
 		}else{
 			throw new IllegalArgumentException("The gender must be <male>,<female> or undeclared");
+		}
+		
+	}
+	
+	public Employee(String firstName, String lastName, Date dateOfBirth) throws NullPointerException,IllegalArgumentException {
+		super();
+		if (firstName.isEmpty()){
+			throw new NullPointerException("Name can't be empty");
+		}else{
+			this.firstName = firstName;
+		}
+		if (lastName.isEmpty()){
+			throw new NullPointerException("Name can't be empty");
+		}else{
+			this.lastName = lastName;
+		}
+		if (validateAge(dateOfBirth)){
+			this.dateOfBirth = dateOfBirth;
+		}else{
+			throw new IllegalArgumentException("The date must be between 1900 and current year - 18");
 		}
 		
 	}
