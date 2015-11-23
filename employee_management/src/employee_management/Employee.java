@@ -2,7 +2,14 @@ package employee_management;
 
 
 import java.util.Date;
-
+/**
+ * Employee class defines all the characteristics for an employee;
+ * Every employee must have a First and last name ,
+ * a date of birth and a gender (which can be undefined);
+ * The age is calculated and set in the moment an instance of Employee is created;
+ * @author Oltean Andrei-Florin;
+ *
+ */
 public class Employee {
 	private String firstName;
 	private String lastName;
@@ -12,11 +19,16 @@ public class Employee {
 	@SuppressWarnings("deprecation")
 	private final int CURRENT_YEAR = new Date().getYear() +1900;
 	
-	
-	
-	
 
-
+/**
+ * Constructor for the mployee class where the gender is specified;
+ * @param firstName
+ * @param lastName
+ * @param dateOfBirth
+ * @param gender
+ * @throws NullPointerException
+ * @throws IllegalArgumentException
+ */
 	public Employee(String firstName, String lastName, Date dateOfBirth, String gender) throws NullPointerException,IllegalArgumentException {
 		if (firstName.isEmpty()){
 			throw new NullPointerException("Name can't be empty");
@@ -42,6 +54,14 @@ public class Employee {
 		
 	}
 	
+	/**
+	 * Constructor for the Employee where the gender is undefined;
+	 * @param firstName
+	 * @param lastName
+	 * @param dateOfBirth
+	 * @throws NullPointerException
+	 * @throws IllegalArgumentException
+	 */
 	public Employee(String firstName, String lastName, Date dateOfBirth) throws NullPointerException,IllegalArgumentException {
 		if (firstName.isEmpty()){
 			throw new NullPointerException("Name can't be empty");
@@ -133,6 +153,13 @@ public class Employee {
 	}
  	
 
+
+	@Override
+	public String toString() {
+		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", age=" + age
+				+ "]";
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -140,7 +167,7 @@ public class Employee {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + age;
+		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
@@ -159,7 +186,10 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		if (age != other.age)
+		if (dateOfBirth == null) {
+			if (other.dateOfBirth != null)
+				return false;
+		} else if (!dateOfBirth.equals(other.dateOfBirth))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
@@ -177,12 +207,6 @@ public class Employee {
 		} else if (!lastName.equals(other.lastName))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", age=" + age
-				+ "]";
 	}
 
 	
